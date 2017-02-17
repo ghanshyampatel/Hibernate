@@ -1,6 +1,6 @@
 <%-- 
-    Document   : updateentry
-    Created on : 14 Feb, 2017, 2:52:53 PM
+    Document   : deleteentry
+    Created on : 17 Feb, 2017, 10:09:48 AM
     Author     : mca1
 --%>
 
@@ -18,17 +18,12 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     </head>
     <body>
-        <div class="container"><br><br>
-            <h1><label>ENTER DETAILS</label></h1>
-        <form action="update.jsp" method="post">
-            <label class="col-sm-2 col-form-label">Id:</label><input type="text" name="id"/><br><br/>
-            <label class="col-sm-2 col-form-label">Name:</label><input type="text" name="name"/><br><br/>
-            <label class="col-sm-2 col-form-label">PassWord:</label><input type="password" name="password"/><br><br/>
-            <label class="col-sm-2 col-form-label">Email:</label><input type="text" name="email"/><br><br/>
+        <form action="delete.jsp" method=""post">
+              <label class="col-sm-2 col-form-label">ID:</label><input type="text" name="id"/><br><br>
             <input type="Submit" value="Register" class="btn-primary btn-md">
-            </div>
         </form>
     </body>
 </html>

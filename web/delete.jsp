@@ -1,6 +1,6 @@
 <%-- 
-    Document   : update
-    Created on : 14 Feb, 2017, 2:56:37 PM
+    Document   : delete
+    Created on : 17 Feb, 2017, 10:11:53 AM
     Author     : mca1
 --%>
 
@@ -20,31 +20,22 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-    </head>
-    <h1>Before Updation</h1>
+        </head>
+    <h1>Before Deletion</h1>
     <jsp:include page="showuser.jsp"/>
     <body>
-        <h1>After Updation</h1>
+        <h1>After Deletion</h1>
         <table width="220" border="1" class="table-bordered">
             <tr><th>Id</th><th>Name</th><th>Password</th><th>Email</th></tr>
             <% int i=Integer.parseInt(request.getParameter("id"));
-            String name=request.getParameter("name");
-            String pw=request.getParameter("password");
-            String em=request.getParameter("email");
-            Configuration cf=new Configuration();
+                Configuration cf=new Configuration();
             cf.configure();
             SessionFactory sf=cf.buildSessionFactory();
             session1=sf.openSession();
             User user=null;
-            session1.beginTransaction();
-            user=(User)session1.get(User.class,i);//retive object which we want to update
-            user.setName(name);
-            user.setPassword(pw);
-            user.setEmail(em);
-            
-            session1.update(user);//update to database table
-            session1.getTransaction().commit();
+            user=(User)session1.get(User.class,i);//retive object which we want to delete
+            session1.delete(user);
+            session1.beginTransaction().commit();
             String SQL_QUERY="from User";
             Query query=session1.createQuery(SQL_QUERY);
             Iterator it=query.iterate();
@@ -59,6 +50,5 @@
             <tr><td><%=id%></td><td><%=name%></td><td><%=pw%></td><td><%=em%></td></tr>
             <%}
             session1.close();%>
-        </table>
     </body>
 </html>
